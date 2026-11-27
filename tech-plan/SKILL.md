@@ -1,7 +1,6 @@
 ---
 name: tech-plan
-description: Build or update the technical implementation plan for one Jira ticket — verified current state, options, numbered steps with code and tests, a Hungarian Jira subtask list and an open-questions table.
-disable-model-invocation: true
+description: Tech plan for one Jira ticket (tech-plans/<KEY>-tech-plan.md). Use when building a new plan, or editing an existing one: recording decisions, renames, open questions, subtasks.
 argument-hint: <JIRA-KEY>
 ---
 
@@ -13,12 +12,14 @@ Produce a tech plan the user implements by following its numbered steps alone, t
 
 The plan carries exactly the ticket's scope: every step traces to the ticket text, an acceptance criterion or an explicit user instruction. Anything else you notice is an **own finding**: raise it in chat, and it enters the plan only when the user says so, as an open question starting with "Own finding:". The ticket's out-of-scope list stays out of the plan entirely. Asked where a step comes from, answer with the ticket key and criterion, or "own finding", in the first sentence.
 
+Updating an existing plan: apply "Maintaining the plan" directly; steps 1–6 only for a new plan or a start-over. 
+
 ## 1. Load the ticket
 
-- No ticket key in `$ARGUMENTS`: ask for it and stop.
+- No ticket key in `$ARGUMENTS`: take it from the plan file being edited (`<KEY>-tech-plan.md`); neither present: ask for it and stop.
 - Atlassian MCP: `getAccessibleAtlassianResources` once for the `cloudId`, then `getJiraIssue` with `view: full`. Fetch the parent, the Jira subtasks and the linked issues the same way; read linked Confluence pages with `getConfluenceContent`.
 - Atlassian unreachable or unauthorized: tell the user and stop. A plan built on a guessed ticket is worthless.
-- Look in `/Users/koosdaniel/Devel/Repos/Peak/tech-plans/` for `<KEY>-tech-plan.md`. If it exists, ask whether to update it or start over, and wait. Read the parent's and sibling tickets' plans when present: they hold agreed decisions and scope splits.
+- Look in `/Users/koosdaniel/Devel/Repos/Peak/tech-plans/` for `<KEY>-tech-plan.md`. If it exists and the request does not say whether to update it or start over, ask and wait. Read the parent's and sibling tickets' plans when present: they hold agreed decisions and scope splits.
 
 Done when: ticket text, acceptance criteria, out-of-scope list, parent, subtasks, links and any prior plans are in context.
 
