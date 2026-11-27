@@ -1,6 +1,6 @@
 ---
 name: tech-plan
-description: Tech plan for one Jira ticket (tech-plans/<KEY>-tech-plan.md). Use when building a new plan, or editing an existing one: recording decisions, renames, open questions, subtasks.
+description: "Tech plan for one Jira ticket (tech-plans/<KEY>-tech-plan.md). Use when building a new plan, or editing an existing one: recording decisions, renames, open questions, subtasks."
 argument-hint: <JIRA-KEY>
 ---
 
@@ -12,7 +12,7 @@ Produce a tech plan the user implements by following its numbered steps alone, t
 
 The plan carries exactly the ticket's scope: every step traces to the ticket text, an acceptance criterion or an explicit user instruction. Anything else you notice is an **own finding**: raise it in chat, and it enters the plan only when the user says so, as an open question starting with "Own finding:". The ticket's out-of-scope list stays out of the plan entirely. Asked where a step comes from, answer with the ticket key and criterion, or "own finding", in the first sentence.
 
-Updating an existing plan: apply "Maintaining the plan" directly; steps 1–6 only for a new plan or a start-over. 
+Updating an existing plan: apply "Maintaining the plan" directly; steps 1–6 only for a new plan or a start-over.
 
 ## 1. Load the ticket
 
@@ -99,7 +99,7 @@ Current state (verified <YYYY-MM-DD>):
 - Names agreed (<YYYY-MM-DD>): `<name>`, `<name>`
 - ⚠️ OQ-1: <question> — <what the plan does until decided>
 
-1.2 Tests — `<test file>`:
+  1.2 Tests — `<test file>`:
 
 - should … (AC "<criterion title>")
 
@@ -118,9 +118,9 @@ N.1 …
 
 ## Open questions (all in one place; each is also ⚠️ inline in its step)
 
-| #                                     | Question   | Until decided                   | Step |
-| ------------------------------------- | ---------- | ------------------------------- | ---- |
-| [OQ-1](<KEY>-tech-plan.md#L<line>)    | <question> | <what the plan does meanwhile>  | 1.1  |
+| #                                  | Question   | Until decided                  | Step |
+| ---------------------------------- | ---------- | ------------------------------ | ---- |
+| [OQ-1](<KEY>-tech-plan.md#L<line>) | <question> | <what the plan does meanwhile> | 1.1  |
 ````
 
 ## 6. Report
